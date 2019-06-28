@@ -66,7 +66,9 @@ THE SOFTWARE.
 // Remainder of this file only compiles with HCC
 #if defined __HCC__
 #include "grid_launch.h"
-#include "hc_printf.hpp"
+#include "hc_am_internal.hpp"
+#include "hsa_atomic.h"
+//  #include "hc_printf.hpp"
 // TODO-HCC-GL - change this to typedef.
 // typedef grid_launch_parm hipLaunchParm ;
 
@@ -254,9 +256,6 @@ template <typename... All>
 static inline __device__ void printf(const char* format, All... all) {
     hc::printf(format, all...);
 }
-#elif defined(__HCC_ACCELERATOR__) || __HIP__
-template <typename... All>
-static inline __device__ void printf(const char* format, All... all) {}
 #endif
 
 #endif //__HCC_OR_HIP_CLANG__
