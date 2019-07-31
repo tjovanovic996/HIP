@@ -447,6 +447,7 @@ hc_get_workitem_absolute_id(int dim)
 
 #endif
 
+#ifndef _OPENMP
 // Support std::complex.
 #pragma push_macro("__CUDA__")
 #define __CUDA__
@@ -457,6 +458,7 @@ hc_get_workitem_absolute_id(int dim)
 #include <cuda_wrappers/new>
 #undef __CUDA__
 #pragma pop_macro("__CUDA__")
+#endif
 
 hipError_t hipExtModuleLaunchKernel(hipFunction_t f, uint32_t globalWorkSizeX,
                                     uint32_t globalWorkSizeY, uint32_t globalWorkSizeZ,
