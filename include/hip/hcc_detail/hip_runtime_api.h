@@ -138,6 +138,8 @@ enum hipLimit_t {
     hipLimitMallocHeapSize = 0x02,
 };
 
+typedef enum hipLimit_t hipLimit_t;
+
 /**
  * @addtogroup GlobalDefs More
  * @{
